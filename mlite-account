@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Load config file with API secrets
+source config.sh
+
+# Load the mailterlite bash library.
+source lib/main.sh
+
+## Account endpoint
+# @cite https://developers.mailerlite.com/reference#account
+mlite_get_account="${mlite_api_uri}me";
+
+## Get account details
+curl -v $mlite_get_account -H $mlite_auth_header
