@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Process cli arguments
+# @cite https://stackoverflow.com/a/33826763/1525594
+while [[ "$#" > 0 ]]; do case $1 in 
+  --send) send=true;;
+  --email) email=true;;
+  --new) new=true;;
+  *) echo "Unknown parameter: $1. Please see README."; exit 1;;
+esac; shift; done
+
+# Bulletproof booleans in bash:
+# @cite https://stackoverflow.com/a/21210966/1525594
+if [[ "$new" = true ]]; then
+  source lib/campaign-new.sh
+fi
+
+if [[ "$email" = true ]]; then
+  source lib/campaign-email.sh
+fi
+
+if [[ "$send" = true ]]; then
+  source lib/campaign-send.sh
+fi
