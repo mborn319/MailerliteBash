@@ -1,0 +1,4 @@
+# Ignore vim swap files and vscode stuff
+.vscode
+*.swp
+*.swo
