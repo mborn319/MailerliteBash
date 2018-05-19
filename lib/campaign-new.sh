@@ -12,6 +12,6 @@ d="$d\"type\":\"regular\"";
 d="$d}";
 
 # Special curl header
-h="-H Content-Type: application/json";
+h='-H "Content-Type: application/json"';
 
-echo "$(CURL POST $mlite_create_campaign $d $h)";
+CURL POST $mlite_create_campaign "$d" "$h";

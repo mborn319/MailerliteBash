@@ -11,8 +11,8 @@ source lib/main.sh
 while [[ "$#" > 0 ]]; do case $1 in 
   --send) send=true;;
   --email) email=true;;
-  --new) new=true; export arg_subject=$2; shift;;
-  --groups) export arg_groups=$2; shift;;
+  --new) new=true; export arg_subject="$2"; shift;;
+  --groups) export arg_groups="$2"; shift;;
   *) echo "Unknown parameter: $1. Please see README."; exit 1;;
 esac; shift; done
 
