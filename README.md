@@ -2,6 +2,18 @@
 
 Just because!
 
+## Getting Started
+
+Create a new `config.sh` file containing the API version URL and API key.
+
+```bash
+#!/usr/bin/env bash
+
+# Store config secrets like API key and URI.
+export mlite_api_uri="http://api.mailerlite.com/api/v2/";
+export mlite_api_key="bla_key_stuff";
+```
+
 ## Documentation
 
 ### Library scripts and functions

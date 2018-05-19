@@ -1,3 +1,9 @@
+# IGNORE SECRETS!!
+# Yeah, so if we could keep the API key out of Github...
+# ... that'd be great.
+# http://belikebill.azurewebsites.net/billgen-API.php?text=This%20is%20Mike.%0D%0AMike%20builds%20API%20integrations.%0D%0AMike%20doesn%27t%20release%20his%20API%20key%20to%20Github.%0D%0ABe%20Like%20Mike.
+config.sh
+
 # Ignore vim swap files and vscode stuff
 .vscode
 *.swp
