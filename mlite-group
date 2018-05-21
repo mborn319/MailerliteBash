@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Load config file with API secrets
+source config.sh
+
+# Load the mailterlite bash library.
+source lib/main.sh
+
+# Process cli arguments
+# @cite https://stackoverflow.com/a/33826763/1525594
+while [[ "$#" > 0 ]]; do case $1 in 
+  --get) get=true;;
+  --update) update=true;;
+  --delete) delete=true;;
+  --new) new=true;;
+  --name) export arg_name="$2"; shift;;
+  --id) export arg_id="$2"; shift;;
+  *) echo "Unknown parameter: $1. Please see README."; exit 1;;
+esac; shift; done
+
+export url_group="${mlite_api_uri}groups";
+
+if [[ "$new" = true ]]; then
+  source lib/group-new.sh
+fi
+
+if [[ "$update" = true ]]; then
+  source lib/group-update.sh
+fi
+
+if [[ "$delete" = true ]]; then
+  source lib/group-delete.sh
+fi
+
+if [[ "$get" = true ]]; then
+  source lib/group-get.sh
+fi
+
+# Clear the current line.
+echo "";
