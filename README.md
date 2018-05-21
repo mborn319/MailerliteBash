@@ -14,20 +14,49 @@ export mlite_api_uri="http://api.mailerlite.com/api/v2/";
 export mlite_api_key="bla_key_stuff";
 ```
 
-## Documentation
+## Authentication
 
-### Library scripts and functions
+Run `./mlite-account` to verify your API key.
 
-* Stuff here...
+## Groups
 
-### Authentication
+### Query Group(s)
 
-Run `./mlite-auth` to verify your API key.
+```bash
+./mlite-group --get
+./mlite-group --get --id 12345
+```
+
+### Create Group
+
+```bash
+./mlite-group --new --name "A bunch of folks who signed up from the website."
+```
+
+### Update Group Name
+
+```bash
+./mlite-group --update --name "Website newsletter signups"
+```
+
+### Delete Group
+
+```bash
+./mlite-group --group --id 12345
+```
+
+## Campaigns
+
+### Get Campaigns By Status
+
+```bash
+./mlite-campaign --get --status sent
+```
 
 ### Create Campaign
 
 ```bash
-./mlite-campaign --new
+./mlite-campaign --new --name "March Newsletter"
 ```
 
 ### Create Campaign Email
