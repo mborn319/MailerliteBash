@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Load config file with API secrets
+source config.sh
+
+# Load the mailterlite bash library.
+source lib/main.sh
+
+# Process cli arguments
+# @cite https://stackoverflow.com/a/33826763/1525594
+while [[ "$#" > 0 ]]; do case $1 in 
+  --get) get=true;;
+  --search) search=true;;
+  --update) update=true;;
+  --new) new=true;;
+  --name) export arg_name="$2"; shift;;
+  --email) export arg_email="$2"; shift;;
+  --id) export arg_id="$2"; shift;;
+  *) echo "Unknown parameter: $1. Please see README."; exit 1;;
+esac; shift; done
+
+export url_subscriber="${mlite_api_uri}subscribers";
+
+if [[ "$new" = true ]]; then
+  source lib/subscriber-new.sh
+fi
+
+if [[ "$update" = true ]]; then
+  source lib/subscriber-update.sh
+fi
+
+if [[ "$get" = true ]]; then
+  echo "Sorry, not implemented!";
+  # source lib/subscriber-get.sh
+fi
+
+if [[ "$search" = true ]]; then
+  echo "Sorry, not implemented!";
+  # source lib/subscriber-search.sh
+fi
+
+# Clear the current line.
+echo "";

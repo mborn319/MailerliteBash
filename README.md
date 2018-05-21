@@ -45,6 +45,20 @@ Run `./mlite-account` to verify your API key.
 ./mlite-group --group --id 12345
 ```
 
+## Subscribers
+
+### Create Subscriber
+
+```bash
+./mlite-subscriber --new --name Mike --email xxx@gmail.com
+```
+
+### Update Subscriber
+
+```bash
+./mlite-subscriber --update --name "Michael Born" --email xyz@gmail.com --id 2328
+```
+
 ## Campaigns
 
 ### Get Campaigns By Status
