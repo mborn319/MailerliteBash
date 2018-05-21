@@ -11,7 +11,7 @@ d="$d\"groups\":[$arg_groups],";
 d="$d\"type\":\"regular\"";
 d="$d}";
 
-# Special curl header
-h='-H "Content-Type: application/json"';
-
-CURL POST $mlite_create_campaign "$d" "$h";
+curl $mlite_create_campaign \
+  --data "$d" \
+  -H "Content-Type: application/json" \
+  -H "X-MailerLite-ApiKey:$mlite_api_key";

@@ -12,4 +12,7 @@ mlite_get_account="${mlite_api_uri}me";
 
 ## Get account details
 curl $mlite_get_account \
-  -H "X-MailerLite-ApiKey: ${mlite_api_key}";
+  -H "X-MailerLite-ApiKey:$mlite_api_key";
+
+# Clear the current line.
+echo "";
