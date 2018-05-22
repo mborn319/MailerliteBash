@@ -12,10 +12,12 @@ while [[ "$#" > 0 ]]; do case $1 in
   --send) send=true;;
   --email) email=true;;
   --new) new=true;;
+  --delete) delete=true;;
   --get) get=true;;
   --status) export arg_status="$2"; shift;;
-  --name) export arg_subject="$2"; shift;;
+  --subject) export arg_subject="$2"; shift;;
   --groups) export arg_groups="$2"; shift;;
+  --id) export arg_id="$2"; shift;;
   *) echo "Unknown parameter: $1. Please see README."; exit 1;;
 esac; shift; done
 
@@ -28,15 +30,35 @@ if [[ "$get" = true ]]; then
 fi
 
 if [[ "$new" = true ]]; then
+  if [[ -z "$arg_subject" ]]; then
+    echo "--subject is required.";
+    exit 1;
+  fi
   source lib/campaign-new.sh
 fi
 
 if [[ "$email" = true ]]; then
+  if [[ -z "$arg_id" ]]; then
+    echo "--id is required.";
+    exit 1;
+  fi
   source lib/campaign-email.sh
 fi
 
 if [[ "$send" = true ]]; then
+  if [[ -z "$arg_id" ]]; then
+    echo "--id is required.";
+    exit 1;
+  fi
   source lib/campaign-send.sh
+fi
+
+if [[ "$delete" = true ]]; then
+  if [[ -z "$arg_id" ]]; then
+    echo "--id is required.";
+    exit 1;
+  fi
+  source lib/campaign-delete.sh
 fi
 
 # Clear the current line.

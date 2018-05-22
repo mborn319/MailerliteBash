@@ -70,7 +70,7 @@ Run `./mlite-account` to verify your API key.
 ### Create Campaign
 
 ```bash
-./mlite-campaign --new --name "March Newsletter"
+./mlite-campaign --new --subject "March Newsletter"
 ```
 
 ### Create Campaign Email

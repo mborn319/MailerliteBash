@@ -2,7 +2,8 @@
 
 echo "Sending campaign!";
 
-mlite_create_campaign="${mlite_api_uri}campaigns";
+url_campaigns="$url_campaigns/$arg_id/actions/send";
 
-curl -X POST $mlite_create_campaign \
+echo "curl -X POST $url_campaigns";
+curl -X POST $url_campaigns \
   -H "X-MailerLite-ApiKey: ${mlite_api_key}";
