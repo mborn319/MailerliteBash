@@ -65,6 +65,7 @@ Run `./mlite-account` to verify your API key.
 
 ```bash
 ./mlite-campaign --get --status sent
+./mlite-campaign --get --status draft
 ```
 
 ### Create Campaign

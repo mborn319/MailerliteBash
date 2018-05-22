@@ -26,6 +26,10 @@ export url_campaigns="${mlite_api_uri}campaigns";
 # Bulletproof booleans in bash:
 # @cite https://stackoverflow.com/a/21210966/1525594
 if [[ "$get" = true ]]; then
+  if [[ -z "$arg_status" ]]; then
+    echo "--status is required.";
+    exit 1;
+  fi
   source lib/campaign-get.sh
 fi
 
