@@ -13,6 +13,7 @@ while [[ "$#" > 0 ]]; do case $1 in
   --search) search=true;;
   --update) update=true;;
   --new) new=true;;
+  --group) export arg_group="$2"; shift;;
   --name) export arg_name="$2"; shift;;
   --email) export arg_email="$2"; shift;;
   --id) export arg_id="$2"; shift;;
@@ -22,6 +23,10 @@ esac; shift; done
 export url_subscriber="${mlite_api_uri}subscribers";
 
 if [[ "$new" = true ]]; then
+  if [[ "$arg_group" ]]; then
+    # Then subscribe them to a GROUP, not the global ACCOUNT.
+    export url_subscriber="${mlite_api_uri}groups/$arg_group/subscribers";
+  fi
   source lib/subscriber-new.sh
 fi
 
