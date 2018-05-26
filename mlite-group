@@ -21,6 +21,10 @@ esac; shift; done
 export url_group="${mlite_api_uri}groups";
 
 if [[ "$new" = true ]]; then
+  if [[ -z "$arg_name" ]]; then
+    echo "--name is required.";
+    exit 1;
+  fi
   source lib/group-new.sh
 fi
 
@@ -29,6 +33,10 @@ if [[ "$update" = true ]]; then
 fi
 
 if [[ "$delete" = true ]]; then
+  if [[ -z "$arg_id" ]]; then
+    echo "--id is required.";
+    exit 1;
+  fi
   source lib/group-delete.sh
 fi
 
