@@ -27,6 +27,10 @@ if [[ "$new" = true ]]; then
     # Then subscribe them to a GROUP, not the global ACCOUNT.
     export url_subscriber="${mlite_api_uri}groups/$arg_group/subscribers";
   fi
+  if [[ -z "$arg_email" ]]; then
+    echo "--email is required.";
+    exit 1;
+  fi
   source lib/subscriber-new.sh
 fi
 
