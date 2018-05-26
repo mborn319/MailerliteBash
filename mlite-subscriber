@@ -39,6 +39,10 @@ if [[ "$update" = true ]]; then
 fi
 
 if [[ "$get" = true ]]; then
+  if [[ "$arg_group" ]]; then
+    # Then get GROUP subscribers.
+    export url_subscriber="${mlite_api_uri}groups/$arg_group/subscribers";
+  fi
   source lib/subscriber-get.sh
 fi
 
