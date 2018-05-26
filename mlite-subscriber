@@ -39,8 +39,7 @@ if [[ "$update" = true ]]; then
 fi
 
 if [[ "$get" = true ]]; then
-  echo "Sorry, not implemented!";
-  # source lib/subscriber-get.sh
+  source lib/subscriber-get.sh
 fi
 
 if [[ "$search" = true ]]; then
