@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-echo "Creating new subscriber!";
+if [[ "$arg_group" ]]; then
+  echo "Creating group subscriber!";
+  export url_subscriber="${mlite_api_uri}groups/$arg_group/subscribers";
+else
+  echo "Creating account subscriber!";
+fi
 
 # Setup JSON body for request
 d="{\"name\":\"$arg_name\", \"email\":\"$arg_email\"}";
