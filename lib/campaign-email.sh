@@ -12,8 +12,8 @@ echo $d;
 # Tweak endpoint to go to the correct campaign
 url_campaigns="$url_campaigns/$arg_id/content";
 
-echo "curl -C POST $url_campaigns";
-curl -X POST $url_campaigns \
-  --data $d \
+echo "curl -X PUT $url_campaigns --data $d";
+curl -X PUT $url_campaigns \
+  --data "$d" \
   -H "Content-Type: application/json" \
   -H "X-MailerLite-ApiKey: ${mlite_api_key}";
